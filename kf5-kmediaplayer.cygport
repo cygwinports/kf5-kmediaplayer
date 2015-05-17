@@ -1,0 +1,26 @@
+inherit kf5
+
+NAME="kf5-kmediaplayer"
+VERSION=5.10.0
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="KDE 5 media player KParts library"
+DESCRIPTION="KMediaPlayer builds on the KParts framework to provide a common
+interface for KParts that can play media files."
+
+SRC_URI="mirror://kde/stable/frameworks/${VERSION%\.*}/portingAids/${NAME#kf5-}-${VERSION}.tar.xz"
+
+PKG_NAMES="libKF5MediaPlayer5 libKF5MediaPlayer-devel"
+libKF5MediaPlayer5_CONTENTS="
+	usr/bin/cygKF5MediaPlayer-5.dll
+	usr/share/doc/
+	usr/share/kservicetypes5/
+"
+libKF5MediaPlayer_devel_REQUIRES="libKF5Parts-devel libKF5XmlGui-devel libQt5Core-devel libQt5Gui-devel"
+libKF5MediaPlayer_devel_CONTENTS="
+	usr/include/KF5/KMediaPlayer/
+	usr/include/KF5/kmediaplayer_version.h
+	usr/lib/cmake/KF5MediaPlayer/
+	usr/lib/libKF5MediaPlayer.dll.a
+	usr/share/dbus-1/interfaces/
+"
